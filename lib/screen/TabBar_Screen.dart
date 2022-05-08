@@ -123,24 +123,24 @@ class _TabBar_ScreenState extends State<TabBar_Screen> {
             },
             icon: Icon(Icons.search),
           ),
-          PopupMenuButton<String>(onSelected: (itemIdentifire) {
-            if (itemIdentifire == 'Logout') {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (builder) => LoginScreen()));
-            }
-            if (itemIdentifire == 'Setting') {}
-          }, itemBuilder: (BuildContext context) {
-            return [
-              PopupMenuItem(
-                child: Text('تسجيل الخروج'),
-                value: 'Logout',
-              ),
-              PopupMenuItem(
-                child: Text('الإعدادات'),
-                value: 'Setting',
-              ),
-            ];
-          }),
+          // PopupMenuButton<String>(onSelected: (itemIdentifire) {
+          //   if (itemIdentifire == 'Logout') {
+          //     Navigator.push(context,
+          //         MaterialPageRoute(builder: (builder) => LoginScreen()));
+          //   }
+          //   if (itemIdentifire == 'Setting') {}
+          // }, itemBuilder: (BuildContext context) {
+          //   return [
+          //     PopupMenuItem(
+          //       child: Text('تسجيل الخروج'),
+          //       value: 'Logout',
+          //     ),
+          //     PopupMenuItem(
+          //       child: Text('الإعدادات'),
+          //       value: 'Setting',
+          //     ),
+          //   ];
+          // }),
         ]);
   }
 }

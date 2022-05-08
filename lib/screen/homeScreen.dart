@@ -52,7 +52,6 @@ class __HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    print(MallSdk.imageUrl + list2[0].icon);
     return Scaffold(
       body: GridView.builder(
         padding: const EdgeInsets.all(10),
