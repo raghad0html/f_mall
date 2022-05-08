@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:moll_app/LoginAndResetAndSignUp/registration/registration.dart';
 import 'package:moll_app/screen/MallScreen.dart';
 import 'package:moll_app/screen/prizes.dart';
 
-import '../../LoginAndResetAndSignUp/Login/login.dart';
 import '../../LoginAndResetAndSignUp/Login/ui/shared/globals.dart';
 import '../../LoginAndResetAndSignUp/Login/ui/widgets/wave_widget.dart';
 import '../../component/primaryButton.dart';

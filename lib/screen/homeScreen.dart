@@ -14,8 +14,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class __HomeScreenState extends State<HomeScreen> {
-  List<MyMall> list1 = [];
-  List<MyMall> list2 = [];
+  List<MyMall> mallList = [];
 
   List<MyMall> fromDB(String strJson) {
     final data = jsonDecode(strJson);
@@ -29,7 +28,7 @@ class __HomeScreenState extends State<HomeScreen> {
       "action": "getMalls",
       "token": MallSdk.token,
       "userid": MallSdk.userId,
-      "cityId": "1"
+      //   "cityId": "1"
     });
     if (response.statusCode == 200) {
       list = fromDB(response.body).cast<MyMall>();
@@ -42,8 +41,7 @@ class __HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     getData().then((value) {
       setState(() {
-        list1 = value;
-        list2 = list1;
+        mallList = value;
       });
     });
 
@@ -52,71 +50,95 @@ class __HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GridView.builder(
-        padding: const EdgeInsets.all(10),
-        itemCount: list2.length,
-        itemBuilder: (context, index) {
-          return InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (builder) => PrimaryScreen(
-                            mall_id: list2[index].mall_id,
-                            mall_name: list2[index].mall_name,
-                            icon: list2[index].icon,
-                          )));
-            },
-            borderRadius: BorderRadius.circular(15),
-            child: Card(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
-              ),
-              elevation: 2,
-              margin: EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(15),
-                      topRight: Radius.circular(15),
-                    ),
-                    child: CachedNetworkImage(
-                      imageUrl: MallSdk.imageUrl + list2[index].icon,
-                      alignment: Alignment.center,
-                      placeholder: (s, e) => Center(
-                        child: SizedBox(
-                          width: 25,
-                          height: 25,
-                          child: CircularProgressIndicator(),
-                        ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: BackButton(),
+          automaticallyImplyLeading: true,
+          title: Text('المولات'),
+          backgroundColor: Colors.teal,
+        ),
+        body: ListView.builder(
+          padding: const EdgeInsets.all(10),
+          itemCount: mallList.length,
+          itemBuilder: (context, index) {
+            return InkWell(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (builder) => PrimaryScreen(
+                              mall_id: mallList[index].mall_id,
+                              mall_name: mallList[index].mall_name,
+                              icon: mallList[index].icon,
+                            )));
+              },
+              borderRadius: BorderRadius.circular(15),
+              child: Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                elevation: 2,
+                margin: EdgeInsets.all(10),
+                child: Column(
+                  children: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        topRight: Radius.circular(15),
                       ),
-                      errorWidget: (e, r, t) => Icon(Icons.error),
-                      fit: BoxFit.cover,
-                      width: double.infinity,
-                      height: 143,
+                      child: CachedNetworkImage(
+                        imageUrl: MallSdk.imageUrl + mallList[index].icon,
+                        alignment: Alignment.center,
+                        placeholder: (s, e) => Center(
+                          child: SizedBox(
+                            width: 25,
+                            height: 25,
+                            child: CircularProgressIndicator(color: Colors.teal,),
+                          ),
+                        ),
+                        errorWidget: (e, r, t) => Icon(Icons.error),
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 250,
+                      ),
                     ),
-                  ),
-                  Text(
-                    list2[index].mall_name,
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.black,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  )
-                ],
+                    Container(
+                      margin: const EdgeInsets.only(right: 10),
+                      alignment: Alignment.bottomRight,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            mallList[index].mall_name,
+                            style: TextStyle(
+                              fontSize: 20,
+                              color: Colors.black,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            mallList[index].city,
+                            style: TextStyle(
+                              fontSize: 15,
+                              color: Colors.black,
+                            ),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
-            ),
-          );
-        },
-        gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-          maxCrossAxisExtent: 200,
-          childAspectRatio: 1.0,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 1,
+            );
+          },
         ),
       ),
     );

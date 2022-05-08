@@ -3,9 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 
-import 'ApiClass/Myprod.dart';
 import 'ApiClass/notific.dart';
-import 'DetailsShop.dart';
 import 'connect.dart';
 
 class notifiction extends StatefulWidget {

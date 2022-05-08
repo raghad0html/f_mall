@@ -3,11 +3,12 @@ import 'package:flutter/material.dart';
 import 'enteredData.dart';
 
 
-class buildName extends StatelessWidget {
+// ignore: must_be_immutable
+class BuildName extends StatelessWidget {
   String? name;
   String? email;
   String? number;
-  buildName(this.name,this.email,this.number);
+  BuildName(this.name,this.email,this.number);
 
   @override
   Widget build(BuildContext context) {

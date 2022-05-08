@@ -24,11 +24,8 @@ class _MycompDetailsState extends State<MycompDetails> {
 
   @override
   Widget build(BuildContext context) {
-    int priceFull = 1;
     String name = "";
     int taxNum = 1;
-    int tax = 1;
-    String date = "";
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(

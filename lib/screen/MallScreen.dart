@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:moll_app/main.dart';
 
 import 'ApiClass/Myshop.dart';
 import 'DetailsShop.dart';

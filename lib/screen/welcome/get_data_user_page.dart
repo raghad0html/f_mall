@@ -29,7 +29,7 @@ class _GetDataUserPageState extends State<GetDataUserPage> {
       body: Center(
         child: !_error
             ? SizedBox(
-                width: 50, height: 50, child: CircularProgressIndicator())
+                width: 50, height: 50, child: CircularProgressIndicator(color: Colors.teal,))
             : ElevatedButton(
                 onPressed: () {
                   setState(() {

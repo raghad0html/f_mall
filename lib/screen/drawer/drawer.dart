@@ -1,14 +1,10 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'package:moll_app/local_storage/shared_prefernce_services.dart';
 import 'package:moll_app/screen/welcome/signuporsignin.dart';
 import '../notification.dart';
 
-import '../profile/profile.dart';
 import 'points.dart';
-import 'whowe are.dart';
 
 class MainDrawer extends StatefulWidget {
   final user_data;
@@ -101,11 +97,6 @@ class __MainDrawerScreenState extends State<MainDrawer> {
                   builder: (BuildContext context) => notifiction(
                         user_id: widget.user_data['user_id'].hashCode,
                       )));
-            }),
-            buildListTile("من نحن", Icons.group, () {
-              Navigator.of(context).pop();
-              Navigator.of(context).push(MaterialPageRoute(
-                  builder: (BuildContext context) => WhoWeAre()));
             }),
             buildListTile("تسجيل الخروج", Icons.logout_rounded, () {
               LocalStorageService().LogOut();

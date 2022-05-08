@@ -1,10 +1,9 @@
 import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:moll_app/screen/drawer/whowe%20are.dart';
 import 'package:moll_app/screen/profile/profile.dart';
+import 'package:moll_app/screen/welcomAfterlogin.dart';
 
-import '../LoginAndResetAndSignUp/Login/login.dart';
-import 'ChatPage/chatPage.dart';
-import 'HomeScreen.dart';
 import 'Search/Search.dart';
 import 'drawer/drawer.dart';
 import 'notification.dart';
@@ -22,7 +21,7 @@ class _TabBar_ScreenState extends State<TabBar_Screen> {
   final bool appeer = false;
   final iconList = <IconData>[
     Icons.home,
-    Icons.chat,
+    Icons.info_outline,
     Icons.notification_important_sharp,
     Icons.person,
   ];
@@ -33,12 +32,10 @@ class _TabBar_ScreenState extends State<TabBar_Screen> {
   void initState() {
     pages = [
       {
-        'page': HomeScreen(),
+        'page': WelcomeAfterScreen(),
       },
       {
-        'page': chatPage(
-          user_id: widget.user_id,
-        ),
+        'page': WhoWeAre(),
       },
       {
         'page': notifiction(
@@ -56,13 +53,13 @@ class _TabBar_ScreenState extends State<TabBar_Screen> {
         'title': 'الرئسية',
       },
       {
-        'title': 'تواصل معنا',
+        'title': 'من نحن',
       },
       {
         'title': 'الإشعارات',
       },
       {
-        'title': 'الملف الشخصي',
+        'title': 'حول',
       },
     ];
 

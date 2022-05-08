@@ -7,13 +7,32 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d033aad9-d479-4bb4-940f-370688d90915" name="Default" comment="--fix login and welcome screen">
+    <list default="true" id="d033aad9-d479-4bb4-940f-370688d90915" name="Default" comment="--fix logout">
+      <change afterPath="$PROJECT_DIR$/lib/screen/ApiClass/city_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/local_storage/shared_prefernce_services.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/local_storage/shared_prefernce_services.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/LoginAndResetAndSignUp/registration/component/registrationForm.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/LoginAndResetAndSignUp/registration/component/registrationForm.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/LoginAndResetAndSignUp/registration/registration.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/LoginAndResetAndSignUp/registration/registration.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/ApiClass/MyMall.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/ApiClass/MyMall.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/MallScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/MallScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/MycompDetails.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/MycompDetails.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screen/TabBar_Screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/TabBar_Screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/connect.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/connect.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screen/drawer/drawer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/drawer/drawer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/drawer/points.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/drawer/points.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/drawer/whowe are.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/drawer/whowe are.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screen/homeScreen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/homeScreen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/load.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/load.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/notification.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/notification.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/primary.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/primary.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/profile/component/buildName.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/profile/component/buildName.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/profile/profile.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/profile/profile.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/scan.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/scan.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screen/welcomAfterlogin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/welcomAfterlogin.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screen/welcome/get_data_user_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screen/welcome/get_data_user_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +59,14 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -100,13 +127,14 @@
     <property name="dart.analysis.tool.window.force.activate" value="true" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/screen/ApiClass" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/screen/ApiClass" />
       <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/assets/icons" />
     </key>
@@ -173,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1652042331357</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="--fix logout">
+      <created>1652043376547</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1652043376547</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -232,7 +267,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="--update gradle" />
     <MESSAGE value="--fix login and welcome screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="--fix login and welcome screen" />
+    <MESSAGE value="--fix logout" />
+    <option name="LAST_COMMIT_MESSAGE" value="--fix logout" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/main.dart">

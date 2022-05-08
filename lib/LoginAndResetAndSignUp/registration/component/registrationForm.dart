@@ -1,9 +1,7 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../../theShopOwer/shopOwner.dart';
-import 'CameraUserPickImage.dart';
 
 class RegistrationForm extends StatefulWidget {
   final void Function(
@@ -11,7 +9,6 @@ class RegistrationForm extends StatefulWidget {
       String password,
       String username,
       String number,
-      File image ,
       BuildContext ctx) _submitAuthForm;
 
   const RegistrationForm(this._submitAuthForm);
@@ -28,10 +25,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
   String _password = "";
   String _number = "";
   String _username = "";
-  File? _userImageFile;
-  void _pickedImage(File pickedImage) {
-    _userImageFile = pickedImage;
-  }
+
 
   //function
   void _submit() {
@@ -55,7 +49,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
       _username = firstNameEditingController.text;
       widget._submitAuthForm(_email.trim(), _password.trim(), _username.trim(),
           _number.trim(),
-          _userImageFile!, context);
+          context);
     }
   }
 
@@ -104,35 +98,35 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ));
 
     //second name field
-    final secondNameField = TextFormField(
-        autofocus: false,
-        controller: secondNameEditingController,
-        keyboardType: TextInputType.name,
-        validator: (value) {
-          if (value!.isEmpty) {
-            return ("Second Name cannot be Empty");
-          }
-          return null;
-        },
-        onSaved: (value) {
-          secondNameEditingController.text = value!;
-        },
-        textInputAction: TextInputAction.next,
-        decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.teal, width: 2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          prefixIcon: Icon(
-            Icons.account_circle,
-            color: Colors.teal,
-          ),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Second Name",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ));
+    // final secondNameField = TextFormField(
+    //     autofocus: false,
+    //     controller: secondNameEditingController,
+    //     keyboardType: TextInputType.name,
+    //     validator: (value) {
+    //       if (value!.isEmpty) {
+    //         return ("Second Name cannot be Empty");
+    //       }
+    //       return null;
+    //     },
+    //     onSaved: (value) {
+    //       secondNameEditingController.text = value!;
+    //     },
+    //     textInputAction: TextInputAction.next,
+    //     decoration: InputDecoration(
+    //       focusedBorder: OutlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.teal, width: 2),
+    //         borderRadius: BorderRadius.circular(10),
+    //       ),
+    //       prefixIcon: Icon(
+    //         Icons.account_circle,
+    //         color: Colors.teal,
+    //       ),
+    //       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+    //       hintText: "Second Name",
+    //       border: OutlineInputBorder(
+    //         borderRadius: BorderRadius.circular(10),
+    //       ),
+    //     ));
 
     //email field
     final emailField = TextFormField(
@@ -238,36 +232,36 @@ class _RegistrationFormState extends State<RegistrationForm> {
         ));
 
     //confirm password field
-    final confirmPasswordField = TextFormField(
-        autofocus: false,
-        controller: confirmPasswordEditingController,
-        obscureText: true,
-        validator: (value) {
-          if (confirmPasswordEditingController.text !=
-              passwordEditingController.text) {
-            return "Password don't match";
-          }
-          return null;
-        },
-        onSaved: (value) {
-          confirmPasswordEditingController.text = value!;
-        },
-        textInputAction: TextInputAction.done,
-        decoration: InputDecoration(
-          focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.teal, width: 2),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          prefixIcon: Icon(
-            Icons.vpn_key,
-            color: Colors.teal,
-          ),
-          contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-          hintText: "Confirm Password",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-        ));
+    // final confirmPasswordField = TextFormField(
+    //     autofocus: false,
+    //     controller: confirmPasswordEditingController,
+    //     obscureText: true,
+    //     validator: (value) {
+    //       if (confirmPasswordEditingController.text !=
+    //           passwordEditingController.text) {
+    //         return "Password don't match";
+    //       }
+    //       return null;
+    //     },
+    //     onSaved: (value) {
+    //       confirmPasswordEditingController.text = value!;
+    //     },
+    //     textInputAction: TextInputAction.done,
+    //     decoration: InputDecoration(
+    //       focusedBorder: OutlineInputBorder(
+    //         borderSide: BorderSide(color: Colors.teal, width: 2),
+    //         borderRadius: BorderRadius.circular(10),
+    //       ),
+    //       prefixIcon: Icon(
+    //         Icons.vpn_key,
+    //         color: Colors.teal,
+    //       ),
+    //       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+    //       hintText: "Confirm Password",
+    //       border: OutlineInputBorder(
+    //         borderRadius: BorderRadius.circular(10),
+    //       ),
+    //     ));
 
     //signup button
     final signUpButton = Material(
@@ -324,11 +318,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        CameraUserPickImage(
-                          imagepickFn: _pickedImage,
-                          imagePath: 'assets/icons/person.png',
-                        ),
-                        SizedBox(height: 16),
+
                         emailField,
                         /*SizedBox(height: 20),
                         secondNameField,

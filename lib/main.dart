@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:moll_app/local_storage/shared_prefernce_services.dart';
 import 'package:moll_app/screen/welcome/get_data_user_page.dart';
 import 'package:moll_app/screen/welcome/signuporsignin.dart';
@@ -33,7 +34,15 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(accentColor: Colors.teal),
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch()
+              .copyWith(secondary: Colors.teal),
+          fontFamily: GoogleFonts.cairo().fontFamily,
+          appBarTheme: AppBarTheme(
+              titleTextStyle: TextStyle(
+            fontFamily: GoogleFonts.cairo().fontFamily,
+          )),
+        ),
         home: GestureDetector(
             behavior: HitTestBehavior.opaque,
             onTap: () {
