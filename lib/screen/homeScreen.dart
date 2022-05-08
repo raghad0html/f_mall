@@ -1,13 +1,12 @@
 import 'dart:convert';
-import 'package:flutter/rendering.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:moll_app/mall_sdk.dart';
 import 'package:moll_app/screen/connect.dart';
 import 'package:moll_app/screen/primary.dart';
 
 import 'ApiClass/MyMall.dart';
-import 'MallScreen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -15,10 +14,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class __HomeScreenState extends State<HomeScreen> {
-
-
   List<MyMall> list1 = [];
   List<MyMall> list2 = [];
+
   List<MyMall> fromDB(String strJson) {
     final data = jsonDecode(strJson);
     return List<MyMall>.from(data.map((e) => MyMall.fromMap(e)));
@@ -26,9 +24,13 @@ class __HomeScreenState extends State<HomeScreen> {
 
   Future<List<MyMall>> getData() async {
     List<MyMall> list = [];
-    final response = await http.post(
-        Uri.http(new connn().getUrl(), new connn().getMall()),
-        body: {"action": "getAll"});
+    final response = await http
+        .post(Uri.https(new connn().getUrl(), new connn().getMall()), body: {
+      "action": "getMalls",
+      "token": MallSdk.token,
+      "userid": MallSdk.userId,
+      "cityId": "1"
+    });
     if (response.statusCode == 200) {
       list = fromDB(response.body).cast<MyMall>();
     }
@@ -50,9 +52,10 @@ class __HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print(MallSdk.imageUrl + list2[0].icon);
     return Scaffold(
       body: GridView.builder(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.all(10),
         itemCount: list2.length,
         itemBuilder: (context, index) {
           return InkWell(
@@ -71,50 +74,40 @@ class __HomeScreenState extends State<HomeScreen> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),
               ),
-              elevation: 4,
+              elevation: 2,
               margin: EdgeInsets.all(10),
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(15),
-                          topRight: Radius.circular(15),
-                        ),
-                        child: Image(
-                          height: 80,
-                          width: double.infinity,
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            'https://mall-app.com/jtto/img/' +
-                                list2[index].icon,
-                          ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15),
+                      topRight: Radius.circular(15),
+                    ),
+                    child: CachedNetworkImage(
+                      imageUrl: MallSdk.imageUrl + list2[index].icon,
+                      alignment: Alignment.center,
+                      placeholder: (s, e) => Center(
+                        child: SizedBox(
+                          width: 25,
+                          height: 25,
+                          child: CircularProgressIndicator(),
                         ),
                       ),
-                      Positioned(
-                        bottom: 20,
-                        right: 10,
-                        child: Container(
-                          width: 300,
-                          color: Colors.black54,
-                          padding: EdgeInsets.symmetric(
-                            vertical: 5,
-                            horizontal: 20,
-                          ),
-                          child: Text(
-                            list2[index].mall_name,
-                            style: TextStyle(
-                              fontSize: 26,
-                              color: Colors.white,
-                            ),
-                            softWrap: true,
-                            overflow: TextOverflow.fade,
-                          ),
-                        ),
-                      )
-                    ],
+                      errorWidget: (e, r, t) => Icon(Icons.error),
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: 143,
+                    ),
                   ),
+                  Text(
+                    list2[index].mall_name,
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  )
                 ],
               ),
             ),
@@ -122,13 +115,11 @@ class __HomeScreenState extends State<HomeScreen> {
         },
         gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
           maxCrossAxisExtent: 200,
-          childAspectRatio: 1.7,
-          crossAxisSpacing: 35,
-          mainAxisSpacing: 35,
+          childAspectRatio: 1.0,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 1,
         ),
       ),
     );
   }
 }
-
-

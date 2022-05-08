@@ -54,7 +54,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
-        body: RegistrationForm(_submitAuthForm,_isloading),
+        body: RegistrationForm(_submitAuthForm),
       ),
     );
   }

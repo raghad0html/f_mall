@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 class connn  {
  
   getUrl() {
-   String url1 = "bareeqr.sa";
+   String url1 = "bareeqe.sa";
     return url1;
   }
    getQr() {
@@ -11,7 +11,7 @@ class connn  {
     return url1;
   }
    getMall() {
-   String url1 = "jtto/allmall.php";
+   String url1 = "mob_app/mall.php";
     return url1;
   }
    getShop() {

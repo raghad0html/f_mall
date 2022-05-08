@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import '../../../../screen/TabBar_Screen.dart';
 import '../shared/globals.dart';
 import '../widgets/button_widget.dart';
 import '../widgets/textfield_widget.dart';
@@ -21,7 +20,6 @@ class _LoginFormState extends State<LoginView> {
   // form key
   final _formKey = GlobalKey<FormState>();
 
-  bool _isLogin = true;
   String _email = "";
   String _password = "";
 

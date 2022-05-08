@@ -1,7 +1,6 @@
 import 'dart:io';
 
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -61,7 +60,7 @@ class _CameraUserPickImageState extends State<CameraUserPickImage> {
   }
 
   Widget buildImage() {
-    final image = Image.asset(widget.imagePath);
+
 
     return ClipOval(
       child: Material(

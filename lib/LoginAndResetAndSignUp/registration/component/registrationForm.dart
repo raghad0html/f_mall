@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:toast/toast.dart';
 import '../../theShopOwer/shopOwner.dart';
 import 'CameraUserPickImage.dart';
 
@@ -14,9 +13,8 @@ class RegistrationForm extends StatefulWidget {
       String number,
       File image ,
       BuildContext ctx) _submitAuthForm;
-  final bool _isloading;
 
-  const RegistrationForm(this._submitAuthForm, this._isloading);
+  const RegistrationForm(this._submitAuthForm);
   @override
   _RegistrationFormState createState() => _RegistrationFormState();
 }
@@ -292,79 +290,82 @@ class _RegistrationFormState extends State<RegistrationForm> {
           )),
     );
 
-    return Scaffold(
-      backgroundColor: Colors.white,
-      // backgroundColor: MediaQuery.of(context).platformBrightness == Brightness.light?LightTheme:darkTheme,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(
-            Icons.arrow_back,
-            color: Colors.green,
-            //color:MediaQuery.of(context).platformBrightness == Brightness.light?darkTheme:LightTheme,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        // backgroundColor: MediaQuery.of(context).platformBrightness == Brightness.light?LightTheme:darkTheme,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(
+              Icons.arrow_back,
+              color: Colors.green,
+              //color:MediaQuery.of(context).platformBrightness == Brightness.light?darkTheme:LightTheme,
+            ),
+            onPressed: () {
+              // passing this to our root
+              Navigator.of(context).pop();
+            },
           ),
-          onPressed: () {
-            // passing this to our root
-            Navigator.of(context).pop();
-          },
         ),
-      ),
-      body: Directionality(
-        textDirection: TextDirection.rtl,
-        child: Center(
-          child: SingleChildScrollView(
-            child: Container(
-              // color:MediaQuery.of(context).platformBrightness == Brightness.light?LightTheme:darkTheme,
-              child: Padding(
-                padding: const EdgeInsets.all(29.0),
-                child: Form(
-                  key: _formKey,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      CameraUserPickImage(
-                        imagepickFn: _pickedImage,
-                        imagePath: 'assets/icons/person.png',
-                      ),
-                      SizedBox(height: 16),
-                      emailField,
-                      /*SizedBox(height: 20),
-                      secondNameField,
-                      SizedBox(height: 20),
-                      emailField,*/
-                      SizedBox(height: 18),
-                      userNameField,
-                      SizedBox(height: 18),
-                      passwordField,
-                      SizedBox(height: 18),
-                      numberField,
-                      SizedBox(height: 18),
-                      signUpButton,
-                      SizedBox(height: 30),
-                      Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text("إذا كنت مالك متجر"),
-                            SizedBox(),
-                            GestureDetector(
-                              onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => ShopOwner()));
-                              },
-                              child: Text(
-                                " أنشئ حساب متجر",
-                                style: TextStyle(
-                                    color: Colors.teal,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15),
-                              ),
-                            )
-                          ])
-                    ],
+        body: Directionality(
+          textDirection: TextDirection.rtl,
+          child: Center(
+            child: SingleChildScrollView(
+              child: Container(
+                // color:MediaQuery.of(context).platformBrightness == Brightness.light?LightTheme:darkTheme,
+                child: Padding(
+                  padding: const EdgeInsets.all(29.0),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        CameraUserPickImage(
+                          imagepickFn: _pickedImage,
+                          imagePath: 'assets/icons/person.png',
+                        ),
+                        SizedBox(height: 16),
+                        emailField,
+                        /*SizedBox(height: 20),
+                        secondNameField,
+                        SizedBox(height: 20),
+                        emailField,*/
+                        SizedBox(height: 18),
+                        userNameField,
+                        SizedBox(height: 18),
+                        passwordField,
+                        SizedBox(height: 18),
+                        numberField,
+                        SizedBox(height: 18),
+                        signUpButton,
+                        SizedBox(height: 30),
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text("إذا كنت مالك متجر"),
+                              SizedBox(),
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => ShopOwner()));
+                                },
+                                child: Text(
+                                  " أنشئ حساب متجر",
+                                  style: TextStyle(
+                                      color: Colors.teal,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15),
+                                ),
+                              )
+                            ])
+                      ],
+                    ),
                   ),
                 ),
               ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:moll_app/local_storage/shared_prefernce_services.dart';
+import 'package:moll_app/screen/welcome/get_data_user_page.dart';
+import 'package:moll_app/screen/welcome/signuporsignin.dart';
 import 'package:moll_app/screen/welcome/welcomescreen.dart';
 
-void main() {
- 
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await LocalStorageService.getInstance();
   runApp(MyApp());
 }
 
@@ -30,7 +34,16 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(accentColor: Colors.teal),
-        home: WelcomeScreen()
+        home: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: () {
+              FocusManager.instance.primaryFocus?.unfocus();
+            },
+            child: (LocalStorageService().firstTimeLogged ?? false)
+                ? ((LocalStorageService().login ?? false)
+                    ? GetDataUserPage()
+                    : SigninOrSignupScreen())
+                : WelcomeScreen())
         // WelcomeScreen(),
         );
     //WelcomeScreen(),

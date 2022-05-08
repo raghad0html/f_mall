@@ -55,7 +55,7 @@ class SigninOrSignupScreen extends StatelessWidget {
                   Container(
                     height: 150,
                     child: Image.asset(
-                      "assets/icons/logo.jpeg",
+                      "assets/icons/logo.png",
                     ),
                   ),
                   /* Text("JTTO",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 25,color:  MediaQuery.of(context).platformBrightness == Brightness.dark

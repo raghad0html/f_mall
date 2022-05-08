@@ -1,9 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:moll_app/local_storage/shared_prefernce_services.dart';
 import 'package:moll_app/screen/welcome/signuporsignin.dart';
 
 
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends StatefulWidget {
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  @override
+  void initState() {
+    LocalStorageService().firstTimeLogged = true;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -13,10 +24,7 @@ class WelcomeScreen extends StatelessWidget {
           child: Column(
             children: [
               Spacer(flex: 2),
-              Padding(
-                padding: const EdgeInsets.only(right:25),
-                child: Image.asset("assets/icons/logo.jpg"),
-              ),
+              Image.asset("assets/icons/logo.png"),
               Spacer(flex: 1),
               Text(
                 "مرحبا بكم في تطبيقنا",
@@ -26,20 +34,23 @@ class WelcomeScreen extends StatelessWidget {
                     .headline5!
                     .copyWith(fontWeight: FontWeight.bold),
               ),
-              Text(
-                "تطبيق بريق الإعلان هو طريقة سهلة للتسوق في أي مكان.",
-                textAlign: TextAlign.center,
-                style:/* TextStyle(
-                    color: Theme.of(context)
-                        .textTheme
-                        .bodyText1!
-                        .color!
-                        .withOpacity(0.64),
-                  ),*/
-                Theme.of(context)
-                    .textTheme
-                    .headline5!
-                    .copyWith(),
+              SizedBox(
+                width: MediaQuery.of(context).size.width*0.9,
+                child: Text(
+                  "تطبيق بريق الإعلان هو طريقة سهلة للتسوق في أي مكان.",
+                  textAlign: TextAlign.center,
+                  style:/* TextStyle(
+                      color: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .color!
+                          .withOpacity(0.64),
+                    ),*/
+                  Theme.of(context)
+                      .textTheme
+                      .headline5!
+                      .copyWith(),
+                ),
               ),
 
 
@@ -61,7 +72,6 @@ class WelcomeScreen extends StatelessWidget {
                                     .textTheme
                                     .bodyText1!
                                     .color!
-                                    .withOpacity(0.8),
                               ),
                         ),
                         SizedBox(width: 20 / 4),

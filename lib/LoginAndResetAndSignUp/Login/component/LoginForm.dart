@@ -11,9 +11,8 @@ class LoginForm extends StatefulWidget {
   final void Function(
           String email, String password, /* bool islogin, */ BuildContext ctx)
       _submitLogin;
-  final bool _isloading;
 
-  const LoginForm(this._submitLogin, this._isloading);
+  const LoginForm(this._submitLogin);
 
   @override
   _LoginFormState createState() => _LoginFormState();
@@ -23,7 +22,7 @@ class _LoginFormState extends State<LoginForm> {
   // form key
   final _formKey = GlobalKey<FormState>();
 
-  bool _isLogin = true;
+
   String _email = "";
   String _password = "";
 

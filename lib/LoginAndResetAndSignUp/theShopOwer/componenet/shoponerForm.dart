@@ -1,8 +1,5 @@
-import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 
 class ShopOwnerform extends StatefulWidget {
@@ -27,7 +24,6 @@ class _ShopOwnerformState extends State<ShopOwnerform> {
   // our form key
   final _formKey = GlobalKey<FormState>();
   String _email = "";
-  bool _isLogin = true;
   String _shopname = "";
   String _shopcenterName = "";
  // String _Cardtype = "";
@@ -174,7 +170,7 @@ class _ShopOwnerformState extends State<ShopOwnerform> {
         keyboardType: TextInputType.name,
         validator: (val) {
 
-             if ( val!.length>1|| val==null ) {
+             if ( val!.length>1 ) {
                return ("الرجاء إدخال 7 أيام على الأقل للاشتراك");
              }
              return null;

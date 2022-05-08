@@ -62,7 +62,7 @@ class __profileScreenState extends State<profile> {
             imagePath: "",
           ),
           const SizedBox(height: 24),
-          buildName(widget.user_data['name'], widget.user_data['email'],widget.user_data['number']),
+          BuildName(widget.user_data['name'], widget.user_data['email'],widget.user_data['number']),
           const SizedBox(height: 24),
         ],
       ),
